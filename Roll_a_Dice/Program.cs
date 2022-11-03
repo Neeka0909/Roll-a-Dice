@@ -7,6 +7,12 @@ public class gamePlayer
     public String name;
     public int turn;
     public int score;
+    
+    public gamePlayer(int id, String name)
+    {
+        this.id = id;
+        this.name = name;
+    }
 
     public gamePlayer(int id, string name, int turn, int score)
     {
