@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
+
 
 public class gamePlayer
 {
@@ -13,11 +13,6 @@ public class gamePlayer
         this.name = name;
     }
 
-
-    public int getId()
-    {
-        return id;
-    }
 
     public String getName()
     {
@@ -35,10 +30,6 @@ public class gamePlayer
         id = newId;
     }
 
-    public void setName(String newName)
-    {
-        name = newName;
-    }
 
     public void setScore(int newScore)
     {
@@ -68,7 +59,7 @@ public class gamePlayer
 
         void showRules()
         {
-            Console.WriteLine("Game Rules \n");
+            Console.WriteLine("\nGame Rules \n");
             Console.WriteLine("* Number of Players: 02  \n* Number of Players: 02 \n* Winning Score: 100 \n");
             Console.WriteLine("* Each player will get a chance to roll two dices at the same time. The process given below will \r\ncontinues until one player reaches the winning score. \n* If 02 dices give the same result (except the dice value 1), the same player will get another \r\nchance to roll the dice.\n* Else other player gets the chance to roll 02 dices.");
             Console.WriteLine("\n \nCalculation of score: \n* If both dices give the value 1, the individual marks of the respective player will be \r\nreduced to 0.\r\n* Else sum of the two dice values will be added to individual scores of the respective \r\nplayer.\r\n");
@@ -87,13 +78,13 @@ public class gamePlayer
                 catch 
                 { 
                     Console.WriteLine("Please Enter the correct value.");
-                    showRules();
+                    
                 }
                 if (optionRules == 1) { gamePlay();}
                 else if (optionRules == 2) { break;}
             }while(optionRules != 2);
             {
-                Console.WriteLine("Thank You, have a Nice Day!!");
+
             }
 
         }
@@ -107,6 +98,7 @@ public class gamePlayer
             String playerName = "";
             bool count = true;
             int i = 1;
+            Console.WriteLine("\n");
             while (count == true)
             {
                 Console.WriteLine("Please enter Player " + i + " Name :");
@@ -144,11 +136,11 @@ public class gamePlayer
             if (x == 1 && y == 1)
             {
                 currentPlayer.setScore(0);
-                Console.WriteLine(currentPlayer.getName() + " Occures tie Event. Both Dices give same value. \r\n Then Set " + currentPlayer.getName() + " Score to 0.");
+                Console.WriteLine("\n" + currentPlayer.getName() + " Occures tie Event. Both Dices give same value. \r\nThen Set " + currentPlayer.getName() + " Score to 0.\n");
             }
             else if (x == y)
             {
-                Console.WriteLine("Both Dices gives the Same Value.");
+                Console.WriteLine("\nBoth Dices gives the Same Value.");
                 scoreCount(j);
             }
             else
@@ -197,6 +189,17 @@ public class gamePlayer
                     exit();
                     Player1.setScore(0);
                     Player2.setScore(0);
+                    String gameOver = @"
+                       _____                                 ____                        
+                      / ____|                               / __ \                       
+                     | |  __    __ _   _ __ ___     ___    | |  | | __   __   ___   _ __ 
+                     | | |_ |  / _` | | '_ ` _ \   / _ \   | |  | | \ \ / /  / _ \ | '__|
+                     | |__| | | (_| | | | | | | | |  __/   | |__| |  \ V /  |  __/ | |   
+                      \_____|  \__,_| |_| |_| |_|  \___|    \____/    \_/    \___| |_|   
+                                                                     
+                                                                     
+                    ";
+                    Console.WriteLine(gameOver);
                     Console.WriteLine("\nPress any key to Start again...");
                     Console.ReadKey();
                     programRun();
@@ -241,7 +244,7 @@ public class gamePlayer
                 catch
                 {
                     Console.WriteLine("Please enter valid entry");
-                    programStart();
+                    
                 }
                 if (startOption == 1)
                 {
